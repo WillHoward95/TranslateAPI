@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background-color: #5271e8;
+}
+
+form {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 75%;
+  margin: auto;
+}
+
+.translationBoxes {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(65, 65, 65);
+  border-radius: 10px 10px 0px 0px;
+  height: 200px;
+}
+
+.translationBox {
+  width: 100%;
+  outline: none;
+  resize: none;
+  border: 0;
+  padding: 10px;
+}
+
+.toTranslate {
+  border-right: 1px solid rgb(65, 65, 65);
+}
+
+.translationBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottomBar {
+  border: 1px solid rgb(65, 65, 65);
+  padding-bottom: 15px;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.translationButton {
+  width: 90%;
+  margin: auto;
+}
+
+select {
+  appearance: none;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: #c5c5c5;
+}
+
+.translateFrom,
+.translateTo {
+  display: flex;
+  align-items: center;
+}
+
+select.round {
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    radial-gradient(#ddd 70%, transparent 72%);
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 0.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+}
+
+select.round:focus {
+  background-image: linear-gradient(45deg, white 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, white 50%),
+    radial-gradient(gray 70%, transparent 72%);
+  background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em,
+    calc(100% - 0.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1.5em 1.5em;
+  background-repeat: no-repeat;
+  border-color: green;
+  outline: 0;
+}
+
+.translateButton {
+  display: flex;
+  justify-content: center;
+  background-color: #5271e8;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  width: 95%;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+}
