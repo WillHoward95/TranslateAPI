@@ -35,16 +35,18 @@ const options = {
 translateButton.addEventListener("click", (e) => {
   //stop it refreshing the page
   e.preventDefault();
-  //add the loading animation
-  loadingSpinner.style.visibility = "visible";
-  //dim the translation box color while loading
-  translation.style.backgroundColor = "#dddddd";
-  //run the getlanguage function
-  getLanguages(startingLang.value, endLang.value);
-  //set the value that's in the translation box to the options object
-  options.params.text = toTranslate.value;
-  //run the getResponse function
-  getResponse(options);
+  if (startingLang.value) {
+    //add the loading animation
+    loadingSpinner.style.visibility = "visible";
+    //dim the translation box color while loading
+    translation.style.backgroundColor = "#dddddd";
+    //run the getlanguage function
+    getLanguages(startingLang.value, endLang.value);
+    //set the value that's in the translation box to the options object
+    options.params.text = toTranslate.value;
+    //run the getResponse function
+    getResponse(options);
+  }
 });
 
 //get the response from the API and set the innertext of the p tag to the translated value
