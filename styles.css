@@ -111,14 +111,16 @@ select.round:focus {
 }
 
 .switchButton,
-.copy {
+.copy,
+.speak {
   height: 50%;
   padding: 10px;
   border-radius: 5px;
 }
 
 .switchButton:hover,
-.copy:hover {
+.copy:hover,
+.speak:hover {
   background-color: #dddddd;
 }
 

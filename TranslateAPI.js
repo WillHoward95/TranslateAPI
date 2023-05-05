@@ -16,6 +16,7 @@ let endLangKey = "";
 
 //import language object from other js file
 import { languages } from "./languages.js";
+import { TTSLanguages } from "./TTSLanguages.js";
 
 //add those lagiage values into the two drop-down menus
 for (const key in languages) {
@@ -107,28 +108,36 @@ copyRight.addEventListener("click", () => {
   copyToClipboard(translation);
 });
 
-//text to speech
+// text to speech
 const speak = (textBox, lang) => {
   if (textBox.value) {
+    window.speechSynthesis.onvoiceschanged = function () {
+      console.log(speechSynthesis.getVoices());
+    };
+
     const msg = new SpeechSynthesisUtterance();
     msg.text = textBox.value;
-    msg.lang = lang;
+
+    for (const language of Object.keys(TTSLanguages)) {
+      if (language.substring(0, 2) === lang) {
+        msg.lang = language;
+      }
+    }
+
+    console.log(msg.lang);
+
     window.speechSynthesis.speak(msg);
   }
 };
 
 speakLeft.addEventListener("click", () => {
   if (startingLangKey) {
-    const lang = startingLangKey;
-    console.log(lang);
-    speak(toTranslate, lang);
+    speak(toTranslate, startingLangKey);
   }
 });
 
 speakRight.addEventListener("click", () => {
   if (endLangKey) {
-    const lang = endLangKey;
-    console.log(lang);
-    speak(translation, lang);
+    speak(translation, endLangKey);
   }
 });
