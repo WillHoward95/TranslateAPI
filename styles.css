@@ -45,6 +45,7 @@ form {
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .bottomBar {
@@ -63,7 +64,7 @@ select {
   padding: 10px;
   margin: 20px;
   border-radius: 5px;
-  background-color: #c5c5c5;
+  background-color: #dddddd;
 }
 
 .translateFrom,
@@ -107,4 +108,14 @@ select.round:focus {
   text-align: center;
   text-decoration: none;
   font-size: 20px;
+}
+
+.switchButton {
+  height: 50%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.switchButton:hover {
+  background-color: #dddddd;
 }

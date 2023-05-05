@@ -4,6 +4,7 @@ const translateButton = document.getElementById("translateButton");
 const startingLang = document.getElementById("startingLang");
 const endLang = document.getElementById("endLang");
 const translation = document.getElementById("translation");
+const switchButton = document.getElementById("switch");
 
 //import language object from other js file
 import { languages } from "./languages.js";
@@ -68,3 +69,11 @@ const getLanguages = (startingLang, endLang) => {
   options.params.el = startingLangKey;
   options.params.tl = endLangKey;
 };
+
+//switch languages on the arrow click
+switchButton.addEventListener("click", (e) => {
+  let tempStartingLang = startingLang.value;
+  startingLang.value = endLang.value;
+  endLang.value = tempStartingLang;
+  e.preventDefault();
+});
