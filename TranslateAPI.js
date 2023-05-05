@@ -8,6 +8,11 @@ const switchButton = document.getElementById("switchButton");
 const loadingSpinner = document.getElementById("loadingSpinner");
 const copyLeft = document.getElementById("copyLeft");
 const copyRight = document.getElementById("copyRight");
+const speakLeft = document.getElementById("speakLeft");
+const speakRight = document.getElementById("speakRight");
+
+let startingLangKey = "";
+let endLangKey = "";
 
 //import language object from other js file
 import { languages } from "./languages.js";
@@ -66,9 +71,6 @@ const getResponse = async (options) => {
 
 //loop through the languages object and set the value of the starting and ending key
 const getLanguages = (startingLang, endLang) => {
-  let startingLangKey = "";
-  let endLangKey = "";
-
   for (const key in languages) {
     if (languages[key] === startingLang) {
       startingLangKey = key;
@@ -103,4 +105,30 @@ copyLeft.addEventListener("click", () => {
 
 copyRight.addEventListener("click", () => {
   copyToClipboard(translation);
+});
+
+//text to speech
+const speak = (textBox, lang) => {
+  if (textBox.value) {
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = textBox.value;
+    msg.lang = lang;
+    window.speechSynthesis.speak(msg);
+  }
+};
+
+speakLeft.addEventListener("click", () => {
+  if (startingLangKey) {
+    const lang = startingLangKey;
+    console.log(lang);
+    speak(toTranslate, lang);
+  }
+});
+
+speakRight.addEventListener("click", () => {
+  if (endLangKey) {
+    const lang = endLangKey;
+    console.log(lang);
+    speak(translation, lang);
+  }
 });
