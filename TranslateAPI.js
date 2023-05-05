@@ -4,7 +4,8 @@ const translateButton = document.getElementById("translateButton");
 const startingLang = document.getElementById("startingLang");
 const endLang = document.getElementById("endLang");
 const translation = document.getElementById("translation");
-const switchButton = document.getElementById("switch");
+const switchButton = document.getElementById("switchButton");
+const loadingSpinner = document.getElementById("loadingSpinner");
 
 //import language object from other js file
 import { languages } from "./languages.js";
@@ -34,6 +35,10 @@ const options = {
 translateButton.addEventListener("click", (e) => {
   //stop it refreshing the page
   e.preventDefault();
+  //add the loading animation
+  loadingSpinner.style.visibility = "visible";
+  //dim the translation box color while loading
+  translation.style.backgroundColor = "#dddddd";
   //run the getlanguage function
   getLanguages(startingLang.value, endLang.value);
   //set the value that's in the translation box to the options object
@@ -47,6 +52,9 @@ const getResponse = async (options) => {
   try {
     const response = await axios.request(options);
     translation.innerText = response.data.data.translation;
+    //remove the loading animation
+    loadingSpinner.style.visibility = "hidden";
+    translation.style.backgroundColor = "#ffffff";
   } catch (error) {
     console.error(error);
   }

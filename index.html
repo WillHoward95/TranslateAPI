@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <!-- <script async defer src="./TranslateAPI.js" type="module"></script> -->
+    <script async defer src="./TranslateAPI.js" type="module"></script>
     <link rel="stylesheet" href="./styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,7 +28,22 @@
             id="translation"
             class="translationBox translation"
             default="Translation"
-          ></textarea>
+          >
+          </textarea>
+          <div class="lds-spinner" id="loadingSpinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
 
         <div class="bottomBar">
