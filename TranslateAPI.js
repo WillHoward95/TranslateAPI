@@ -6,6 +6,8 @@ const endLang = document.getElementById("endLang");
 const translation = document.getElementById("translation");
 const switchButton = document.getElementById("switchButton");
 const loadingSpinner = document.getElementById("loadingSpinner");
+const copyLeft = document.getElementById("copyLeft");
+const copyRight = document.getElementById("copyRight");
 
 //import language object from other js file
 import { languages } from "./languages.js";
@@ -86,4 +88,19 @@ switchButton.addEventListener("click", (e) => {
   startingLang.value = endLang.value;
   endLang.value = tempStartingLang;
   e.preventDefault();
+});
+
+//function to copy based on whcih box is sent to it
+const copyToClipboard = (textBox) => {
+  textBox.select();
+  document.execCommand("Copy");
+};
+
+//event listener for each copy button
+copyLeft.addEventListener("click", () => {
+  copyToClipboard(toTranslate);
+});
+
+copyRight.addEventListener("click", () => {
+  copyToClipboard(translation);
 });

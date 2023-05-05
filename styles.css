@@ -110,13 +110,15 @@ select.round:focus {
   font-size: 20px;
 }
 
-.switchButton {
+.switchButton,
+.copy {
   height: 50%;
   padding: 10px;
   border-radius: 5px;
 }
 
-.switchButton:hover {
+.switchButton:hover,
+.copy:hover {
   background-color: #dddddd;
 }
 

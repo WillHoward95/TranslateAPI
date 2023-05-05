@@ -22,12 +22,12 @@
           <textarea
             id="toTranslate"
             class="translationBox toTranslate"
-            default="Type text here..."
+            placeholder="Type text here..."
           ></textarea>
           <textarea
             id="translation"
             class="translationBox translation"
-            default="Translation"
+            readonly
           >
           </textarea>
           <div class="lds-spinner" id="loadingSpinner">
@@ -49,6 +49,12 @@
         <div class="bottomBar">
           <div class="translationBar">
             <div class="translateFrom">
+              <img
+                src="./svgs/copy-1-svgrepo-com.svg"
+                alt=""
+                class="copy"
+                id="copyLeft"
+              />
               <select name="startingLang" id="startingLang" class="round">
                 <option value="">Translate From</option>
               </select>
@@ -63,6 +69,12 @@
               <select name="endLang" id="endLang" class="round">
                 <option value="">Translate To</option>
               </select>
+              <img
+                src="./svgs/copy-1-svgrepo-com.svg"
+                alt=""
+                class="copy"
+                id="copyRight"
+              />
             </div>
           </div>
           <button id="translateButton" class="translateButton">
