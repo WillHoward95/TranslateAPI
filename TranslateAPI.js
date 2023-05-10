@@ -11,12 +11,8 @@ const copyRight = document.getElementById("copyRight");
 const speakLeft = document.getElementById("speakLeft");
 const speakRight = document.getElementById("speakRight");
 
-let startingLangKey = "";
-let endLangKey = "";
-
 //import language object from other js file
 import { languages } from "./languages.js";
-import { TTSLanguages } from "./TTSLanguages.js";
 
 //add those lagiage values into the two drop-down menus
 for (const key in languages) {
@@ -44,6 +40,8 @@ translateButton.addEventListener("click", (e) => {
   //stop it refreshing the page
   e.preventDefault();
   if (startingLang.value) {
+    //remove any text that's already in there
+    translation.innerText = "";
     //add the loading animation
     loadingSpinner.style.visibility = "visible";
     //dim the translation box color while loading
@@ -57,7 +55,7 @@ translateButton.addEventListener("click", (e) => {
   }
 });
 
-//get the response from the API and set the innertext of the p tag to the translated value
+//get the response from the API and set the innertext
 const getResponse = async (options) => {
   try {
     const response = await axios.request(options);
@@ -72,6 +70,9 @@ const getResponse = async (options) => {
 
 //loop through the languages object and set the value of the starting and ending key
 const getLanguages = (startingLang, endLang) => {
+  let startingLangKey = "";
+  let endLangKey = "";
+
   for (const key in languages) {
     if (languages[key] === startingLang) {
       startingLangKey = key;
@@ -87,9 +88,16 @@ const getLanguages = (startingLang, endLang) => {
 
 //switch languages on the arrow click
 switchButton.addEventListener("click", (e) => {
+  //switch languages in dropdown menu
   let tempStartingLang = startingLang.value;
   startingLang.value = endLang.value;
   endLang.value = tempStartingLang;
+
+  //switch translation box values
+  let tempTranslationBox = toTranslate.value;
+  toTranslate.value = translation.value;
+  translation.value = tempTranslationBox;
+
   e.preventDefault();
 });
 
@@ -109,35 +117,18 @@ copyRight.addEventListener("click", () => {
 });
 
 // text to speech
-const speak = (textBox, lang) => {
-  if (textBox.value) {
-    window.speechSynthesis.onvoiceschanged = function () {
-      console.log(speechSynthesis.getVoices());
-    };
+const speak = (textBox) => {
+  const msg = new SpeechSynthesisUtterance();
+  msg.text = textBox.value;
 
-    const msg = new SpeechSynthesisUtterance();
-    msg.text = textBox.value;
-
-    for (const language of Object.keys(TTSLanguages)) {
-      if (language.substring(0, 2) === lang) {
-        msg.lang = language;
-      }
-    }
-
-    console.log(msg.lang);
-
-    window.speechSynthesis.speak(msg);
-  }
+  window.speechSynthesis.speak(msg);
 };
 
+//add event listeners for speak buttons
 speakLeft.addEventListener("click", () => {
-  if (startingLangKey) {
-    speak(toTranslate, startingLangKey);
-  }
+  speak(toTranslate);
 });
 
 speakRight.addEventListener("click", () => {
-  if (endLangKey) {
-    speak(translation, endLangKey);
-  }
+  speak(translation);
 });

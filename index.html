@@ -49,22 +49,28 @@
         <div class="bottomBar">
           <div class="translationBar">
             <div class="translateFrom">
-              <img
-                src="./svgs/sound-loud-svgrepo-com.svg"
-                alt=""
-                class="speak"
-                id="speakLeft"
-              />
-              <audio src="" hidden class="speech"></audio>
-              <img
-                src="./svgs/copy-1-svgrepo-com.svg"
-                alt=""
-                class="copy"
-                id="copyLeft"
-              />
-              <select name="startingLang" id="startingLang" class="round">
+              <select
+                name="startingLang"
+                id="startingLang"
+                class="round translationDropdowns"
+              >
                 <option value="">Translate From</option>
               </select>
+              <div class="buttons">
+                <img
+                  src="./svgs/sound-loud-svgrepo-com.svg"
+                  alt=""
+                  class="speak"
+                  id="speakLeft"
+                />
+                <audio src="" hidden class="speech"></audio>
+                <img
+                  src="./svgs/copy-1-svgrepo-com.svg"
+                  alt=""
+                  class="copy"
+                  id="copyLeft"
+                />
+              </div>
             </div>
             <img
               src="./svgs/two-arrows-spin-svgrepo-com.svg"
@@ -73,21 +79,27 @@
               alt=""
             />
             <div class="translateTo">
-              <select name="endLang" id="endLang" class="round">
+              <select
+                name="endLang"
+                id="endLang"
+                class="round translationDropdowns"
+              >
                 <option value="">Translate To</option>
               </select>
-              <img
-                src="./svgs/copy-1-svgrepo-com.svg"
-                alt=""
-                class="copy"
-                id="copyRight"
-              />
-              <img
-                src="./svgs/sound-loud-svgrepo-com.svg"
-                alt=""
-                class="speak"
-                id="speakRight"
-              />
+              <div class="buttons">
+                <img
+                  src="./svgs/copy-1-svgrepo-com.svg"
+                  alt=""
+                  class="copy"
+                  id="copyRight"
+                />
+                <img
+                  src="./svgs/sound-loud-svgrepo-com.svg"
+                  alt=""
+                  class="speak"
+                  id="speakRight"
+                />
+              </div>
             </div>
           </div>
           <button id="translateButton" class="translateButton">

@@ -71,6 +71,15 @@ select {
 .translateTo {
   display: flex;
   align-items: center;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+}
+
+.translationDropdowns {
+  width: 90%;
 }
 
 select.round {
@@ -116,12 +125,14 @@ select.round:focus {
   height: 50%;
   padding: 10px;
   border-radius: 5px;
+  fill: #9f9f9f;
 }
 
 .switchButton:hover,
 .copy:hover,
 .speak:hover {
   background-color: #dddddd;
+  cursor: pointer;
 }
 
 /* loading spinner  */
