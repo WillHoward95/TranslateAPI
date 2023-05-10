@@ -7,81 +7,142 @@
 }
 
 .main {
-  display: flex;
-  align-items: center;
   height: 100vh;
   background-color: #5271e8;
+  display: flex;
+  align-items: center;
 }
 
 form {
+  position: relative;
+  height: 446px;
   background-color: #ffffff;
-  padding: 30px;
-  border-radius: 10px;
-  width: 75%;
+  width: 90%;
+  max-width: 800px;
+  padding: 10px 10px;
   margin: auto;
+  border: 3px solid #bbbbbb;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "translateFrom translateFrom translateFrom translateFrom translateFrom"
+    "translateFromCopy translateFromSelect translateFromSelect translateFromSelect translateFromSpeak"
+    ". . switch . . "
+    "translateTo translateTo translateTo translateTo translateTo"
+    "translateToCopy translateToSelect translateToSelect translateToSelect translateToSpeak"
+    "translationBtn translationBtn translationBtn translationBtn translationBtn ";
 }
 
-.translationBoxes {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid rgb(65, 65, 65);
-  border-radius: 10px 10px 0px 0px;
-  height: 200px;
+.translateFrom {
+  grid-area: translateFrom;
+  justify-self: center;
+  align-self: center;
+}
+
+.translateFromSelect {
+  grid-area: translateFromSelect;
+  justify-self: center;
+  align-self: center;
+}
+
+.speakLeft {
+  grid-area: translateFromSpeak;
+  justify-self: center;
+  align-self: center;
+}
+
+.copyLeft {
+  grid-area: translateFromCopy;
+  justify-self: center;
+  align-self: center;
+}
+
+.switchButton {
+  grid-area: switch;
+  justify-self: center;
+  align-self: center;
+}
+
+.translateTo {
+  grid-area: translateTo;
+  justify-self: center;
+  align-self: center;
+}
+
+.speakRight {
+  grid-area: translateToSpeak;
+  justify-self: center;
+  align-self: center;
+}
+
+.copyRight {
+  grid-area: translateToCopy;
+  justify-self: center;
+  align-self: center;
+}
+
+.translateToSelect {
+  grid-area: translateToSelect;
+  justify-self: center;
+  align-self: center;
+}
+
+.translateButton {
+  grid-area: translationBtn;
+  justify-self: center;
+  align-self: center;
+}
+
+.translationDropdowns {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #bbbbbb;
 }
 
 .translationBox {
   width: 100%;
-  outline: none;
+  height: 100px;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
   resize: none;
-  border: 0;
-  padding: 10px;
-}
-
-.toTranslate {
-  border-right: 1px solid rgb(65, 65, 65);
-}
-
-.translationBar {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.bottomBar {
-  border: 1px solid rgb(65, 65, 65);
-  padding-bottom: 15px;
-  border-radius: 0px 0px 10px 10px;
-}
-
-.translationButton {
-  width: 90%;
-  margin: auto;
+  padding: 5px;
+  outline: none;
+  box-shadow: none;
 }
 
 select {
   appearance: none;
-  padding: 10px;
-  margin: 20px;
+}
+
+.translateButton {
+  width: 100%;
+  padding: 20px;
+  border: none;
   border-radius: 5px;
-  background-color: #dddddd;
+  background-color: #5271e8;
+  color: white;
+  margin: 10px;
 }
 
-.translateFrom,
-.translateTo {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+.translateButton:hover {
+  background-color: #657fe7;
+  cursor: pointer;
 }
 
-.buttons {
-  display: flex;
+img {
+  border-radius: 5px;
+  padding: 10px;
 }
 
-.translationDropdowns {
-  width: 90%;
+img:hover {
+  background-color: #eeeeee;
+  cursor: pointer;
 }
 
+/* drop-down arrow */
 select.round {
   background-image: linear-gradient(45deg, transparent 50%, gray 50%),
     linear-gradient(135deg, gray 50%, transparent 50%),
@@ -104,45 +165,14 @@ select.round:focus {
   outline: 0;
 }
 
-.translateButton {
-  display: flex;
-  justify-content: center;
-  background-color: #5271e8;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  width: 95%;
-  padding: 20px;
-  margin: 0 auto;
-  text-align: center;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-.switchButton,
-.copy,
-.speak {
-  height: 50%;
-  padding: 10px;
-  border-radius: 5px;
-  fill: #9f9f9f;
-}
-
-.switchButton:hover,
-.copy:hover,
-.speak:hover {
-  background-color: #dddddd;
-  cursor: pointer;
-}
-
 /* loading spinner  */
 .lds-spinner {
   color: official;
   display: inline-block;
-  position: relative;
+  position: absolute;
   height: 80px;
-  left: -30%;
-  top: 30%;
+  top: 50.5%;
+  left: 41.5%;
   visibility: hidden;
 }
 .lds-spinner div {
@@ -214,5 +244,32 @@ select.round:focus {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@media (min-width: 650px) {
+  form {
+    height: 300px;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "translateFrom translateFrom translateFrom translateFrom translateFrom translateFrom translateFrom translateTo translateTo translateTo translateTo translateTo translateTo translateTo"
+      "translateFromCopy translateFromSelect translateFromSelect translateFromSelect translateFromSelect translateFromSpeak switch switch translateToCopy translateToSelect translateToSelect translateToSelect translateToSelect translateToSpeak"
+      "translationBtn translationBtn translationBtn translationBtn translationBtn translationBtn translationBtn translationBtn translationBtn translationBtn translationBtn translationBtn translationBtn translationBtn";
+  }
+
+  .lds-spinner {
+    top: 7%;
+    left: 69%;
+  }
+
+  .translateFrom {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .translateTo {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }

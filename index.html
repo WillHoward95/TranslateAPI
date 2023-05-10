@@ -18,94 +18,77 @@
   <body>
     <div class="main">
       <form action="">
-        <div class="translationBoxes">
-          <textarea
-            id="toTranslate"
-            class="translationBox toTranslate"
-            placeholder="Type text here..."
-          ></textarea>
-          <textarea
-            id="translation"
-            class="translationBox translation"
-            readonly
-          >
-          </textarea>
-          <div class="lds-spinner" id="loadingSpinner">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+        <textarea
+          id="translateFrom"
+          class="translationBox translateFrom"
+          placeholder="Type text here..."
+        ></textarea>
+        <textarea id="translateTo" class="translationBox translateTo" readonly>
+        </textarea>
+        <div class="lds-spinner" id="loadingSpinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
 
-        <div class="bottomBar">
-          <div class="translationBar">
-            <div class="translateFrom">
-              <select
-                name="startingLang"
-                id="startingLang"
-                class="round translationDropdowns"
-              >
-                <option value="">Translate From</option>
-              </select>
-              <div class="buttons">
-                <img
-                  src="./svgs/sound-loud-svgrepo-com.svg"
-                  alt=""
-                  class="speak"
-                  id="speakLeft"
-                />
-                <audio src="" hidden class="speech"></audio>
-                <img
-                  src="./svgs/copy-1-svgrepo-com.svg"
-                  alt=""
-                  class="copy"
-                  id="copyLeft"
-                />
-              </div>
-            </div>
-            <img
-              src="./svgs/two-arrows-spin-svgrepo-com.svg"
-              class="switchButton"
-              id="switchButton"
-              alt=""
-            />
-            <div class="translateTo">
-              <select
-                name="endLang"
-                id="endLang"
-                class="round translationDropdowns"
-              >
-                <option value="">Translate To</option>
-              </select>
-              <div class="buttons">
-                <img
-                  src="./svgs/copy-1-svgrepo-com.svg"
-                  alt=""
-                  class="copy"
-                  id="copyRight"
-                />
-                <img
-                  src="./svgs/sound-loud-svgrepo-com.svg"
-                  alt=""
-                  class="speak"
-                  id="speakRight"
-                />
-              </div>
-            </div>
-          </div>
-          <button id="translateButton" class="translateButton">
-            Translate!
-          </button>
-        </div>
+        <select
+          name="startingLang"
+          id="startingLang"
+          class="round translationDropdowns translateFromSelect"
+        >
+          <option value="">Translate From</option>
+        </select>
+        <img
+          src="./svgs/sound-loud-svgrepo-com.svg"
+          alt=""
+          class="speak speakLeft"
+          id="speakLeft"
+        />
+        <audio src="" hidden class="speech"></audio>
+        <img
+          src="./svgs/copy-1-svgrepo-com.svg"
+          alt=""
+          class="copy copyLeft"
+          id="copyLeft"
+        />
+
+        <img
+          src="./svgs/two-arrows-spin-svgrepo-com.svg"
+          class="switchButton"
+          id="switchButton"
+          alt=""
+        />
+
+        <select
+          name="endLang"
+          id="endLang"
+          class="round translationDropdowns translateToSelect"
+        >
+          <option value="">Translate To</option>
+        </select>
+        <img
+          src="./svgs/copy-1-svgrepo-com.svg"
+          alt=""
+          class="copy copyRight"
+          id="copyRight"
+        />
+        <img
+          src="./svgs/sound-loud-svgrepo-com.svg"
+          alt=""
+          class="speak speakRight"
+          id="speakRight"
+        />
+
+        <button id="translateButton" class="translateButton">Translate!</button>
       </form>
     </div>
   </body>

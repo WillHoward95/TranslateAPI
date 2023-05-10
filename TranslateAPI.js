@@ -1,15 +1,17 @@
 //grabbing the html elements
-const toTranslate = document.getElementById("toTranslate");
+const toTranslate = document.getElementById("translateFrom");
 const translateButton = document.getElementById("translateButton");
 const startingLang = document.getElementById("startingLang");
 const endLang = document.getElementById("endLang");
-const translation = document.getElementById("translation");
+const translation = document.getElementById("translateTo");
 const switchButton = document.getElementById("switchButton");
 const loadingSpinner = document.getElementById("loadingSpinner");
 const copyLeft = document.getElementById("copyLeft");
 const copyRight = document.getElementById("copyRight");
 const speakLeft = document.getElementById("speakLeft");
 const speakRight = document.getElementById("speakRight");
+
+translation.innerText - "test";
 
 //import language object from other js file
 import { languages } from "./languages.js";
