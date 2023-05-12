@@ -11,6 +11,15 @@
   background-color: #5271e8;
   display: flex;
   align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  font-size: 32px;
+  position: absolute;
+  top: 28%;
+  font-weight: 300;
 }
 
 form {
@@ -93,6 +102,22 @@ form {
   grid-area: translationBtn;
   justify-self: center;
   align-self: center;
+  width: 100%;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5271e8;
+  color: white;
+  margin: 10px;
+}
+
+.translateButton:hover {
+  background-color: #657fe7;
+  cursor: pointer;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
 }
 
 .translationDropdowns {
@@ -115,21 +140,6 @@ form {
 
 select {
   appearance: none;
-}
-
-.translateButton {
-  width: 100%;
-  padding: 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #5271e8;
-  color: white;
-  margin: 10px;
-}
-
-.translateButton:hover {
-  background-color: #657fe7;
-  cursor: pointer;
 }
 
 img {
@@ -271,5 +281,9 @@ select.round:focus {
   .translateTo {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+
+  .title {
+    top: 34%;
   }
 }

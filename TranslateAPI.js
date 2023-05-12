@@ -16,7 +16,7 @@ translation.innerText - "test";
 //import language object from other js file
 import { languages } from "./languages.js";
 
-//add those lagiage values into the two drop-down menus
+//add those language values into the two drop-down menus
 for (const key in languages) {
   startingLang.innerHTML += `<option>${languages[key]}</option>`;
   endLang.innerHTML += `<option>${languages[key]}</option>`;
@@ -41,7 +41,7 @@ const options = {
 translateButton.addEventListener("click", (e) => {
   //stop it refreshing the page
   e.preventDefault();
-  if (startingLang.value) {
+  if (startingLang.value && endLang.value && toTranslate.value) {
     //remove any text that's already in there
     translation.innerText = "";
     //add the loading animation
@@ -134,3 +134,18 @@ speakLeft.addEventListener("click", () => {
 speakRight.addEventListener("click", () => {
   speak(translation);
 });
+
+//make translate button clickable when both languages have been selected
+startingLang.addEventListener("change", () => {
+  makeButtonClickable();
+});
+
+endLang.addEventListener("change", () => {
+  makeButtonClickable();
+});
+
+const makeButtonClickable = () => {
+  if (startingLang.value && endLang.value) {
+    translateButton.classList.remove("disabled");
+  }
+};
