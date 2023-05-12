@@ -18,8 +18,8 @@
   color: rgb(255, 255, 255);
   font-size: 32px;
   position: absolute;
-  top: 28%;
   font-weight: 300;
+  top: -60px;
 }
 
 form {
@@ -281,9 +281,5 @@ select.round:focus {
   .translateTo {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-  }
-
-  .title {
-    top: 34%;
   }
 }
